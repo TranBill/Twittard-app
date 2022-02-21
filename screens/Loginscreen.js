@@ -36,9 +36,9 @@ const LoginScreen=({navigation}) => {
           </View>
 
           <View style={{flexDirection:'row',marginTop:10}}>
-          <Text style={{textDecorationLine:'line-through',color:'white',fontSize:10}}>---------------</Text>
+          <Text style={{textDecorationLine:'line-through',color:'white',fontSize:10}}>----------------</Text>
           <Text style={{color:'white',fontSize:12}}> Hoặc </Text>
-          <Text style={{textDecorationLine:'line-through',color:'white',fontSize:10}}>---------------</Text>
+          <Text style={{textDecorationLine:'line-through',color:'white',fontSize:10}}>----------------</Text>
           </View>
 
           <View>
