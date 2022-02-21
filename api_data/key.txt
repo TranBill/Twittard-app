@@ -1,0 +1,10 @@
++ API key (Consumer key): gFu2hhrMtQgDnVL9OUg1zi3gG
+
++ API key secret: JrqJc6slGVo1ZfoN113Wh2CTCQQ0t7KZ9JLqZoqaIGlvodeOlj
+
++ Bearer token: 
+  AAAAAAAAAAAAAAAAAAAAAFbVYQEAAAAAEDWQ33AW%2B%2Bt7w0FrcH7lwhBBFgc%3D2RufDOC8i4PwjESiDCPwQIvT8Ouod7Q4NEeMZokKE0MEsPToqO
+
++ Access token: 1184051547086311424-AWo6x6NrFuHlokFUEh4woVzZvEqj2h
+
++ Access token secret: 5O5oKU6tx0mS9pEBErn8vJVJmemgKNYYtDhju5V0Tm1LA

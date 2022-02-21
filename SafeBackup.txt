@@ -1,0 +1,195 @@
+import React from "react";
+import { View, Text,FlatList , StyleSheet, Dimensions, Image, Linking,Button, SafeAreaView, ScrollView} from 'react-native';
+import * as WebBrowser from 'expo-web-browser';
+import { TextInput } from "react-native-gesture-handler";
+import axios from "axios";
+import { USER_URL } from "../BASE_URL";
+import {WindowWidth,WindowHeight} from "../utils/Dimensions"
+
+function GetAPI() {
+  const [user, setUser] = React.useState();
+  React.useEffect(() => {
+    axios(USER_URL).then((response) => { 
+      setUser(response.data)
+      console.log(response.data)
+    })
+    ;
+  }, []);
+
+  if (!user) return null;
+
+  const Profile = ({user})=>{
+
+    return(
+      <>
+      <View style={styles.cardView}>
+        <Image source={{uri : user.data.profile_image_url}} style={styles.image} />
+        <Text style={styles.title}>
+          {user.data.name}
+        </Text>
+        <Text style={styles.description}> 
+          @{user.data.username}
+        </Text>
+      </View>
+
+      <View style={{backgroundColor:'#15202B',flex:1,justifyContent:'center',alignContent:'center'}}>
+          <Text style={{color:'#808080',marginLeft:30}}>
+          Follower: <Text style={{color:'white'}}>{user.data.public_metrics.followers_count}</Text>
+          </Text>
+
+          <Text style={{color:'#808080',marginTop:15,marginLeft:30}}>
+            Following: <Text style={{color:'white'}}>{user.data.public_metrics.following_count}</Text>
+          </Text>
+
+          <Text style={{color:'#808080',marginTop:15,marginLeft:30}}>
+            Location: <Text style={{color:'white'}}>{user.data.location}</Text>
+          </Text>
+
+          <Text style={{color:'#808080',marginTop:15,marginLeft:30}}>
+            id: <Text style={{color:'white'}}>{user.data.id}</Text>
+          </Text>
+      </View>
+      </>
+    )
+
+}
+return (
+      <Profile user={user}/>
+  );
+}
+
+const styles = StyleSheet.create({ 
+  cardView: {
+      flex:1,
+      backgroundColor: twittercolor,
+      alignItems:'center',
+      justifyContent:'center'
+  },
+  title: {
+      marginHorizontal: WindowWidth * 0.05,
+      marginVertical: WindowWidth * 0.03,
+      color: 'white',
+      fontSize: 15,
+      fontWeight: 'bold',
+
+  },
+  description: {
+      marginTop: 10, 
+      color: 'white',
+      fontSize: 15
+  },
+  image: {
+      width :'40%',
+      aspectRatio:48/48,
+      borderRadius: 80
+  },
+  author: {
+      marginBottom: WindowWidth * 0.0,
+      marginHorizontal: WindowWidth * 0.05,
+      fontSize: 15,
+      color: twittercolor
+
+  }
+
+});
+export default GetAPI
+
+
+
+
+<Text style={{ color: 'white', fontSize: 12, fontWeight: 'bold',marginTop:5 }}>
+            {user.includes.users.name} 
+            </Text>
+            <Text style={{
+              color:'white',
+              fontSize:9,
+              marginBottom:5,
+              alignSelf:'center'
+              }}>
+              {user.includes.users.map((item)=>({item,id}))} Tweet
+            </Text>
+
+<Image
+  source={{uri : user.includes.users.profile_image_url}}
+  style={{ flex: 1, width: null, height: null }}
+/>
+
+
+<View>
+  <Text style={{ fontWeight: 'bold', fontSize: 20, paddingLeft: 12,color:'white' }}>
+    {user.includes.users.name} 
+  </Text>
+  <Text style={{ fontWeight: 'bold', fontSize: 15, paddingLeft: 12,color:'gray'}}>
+    @{user.includes.users.username}
+  </Text>
+  <>
+    <FlatList data={user}
+       keyExtractor={(item, index) => 'key' + index}
+        renderItem={({item}) => {
+        return <NewsCard item = {item}/>
+        }}
+    />
+  </>
+</View>
+
+{/* TWEET LIST */}
+           {user.includes.media.map((item)=>(
+            <View style={styles.cardView}>
+              {user.data.map((item)=>(
+                <Text style={{color:'white'}} >{item.text}</Text>
+              ))}
+              <Text 
+              key={item.height}
+              style={{
+                marginHorizontal: WindowWidth * 0.05,
+                marginVertical: WindowHeight * 0.03,
+                color: 'yellow',
+                fontSize: 20,
+                fontWeight: '700'
+              }}
+              onPress={()=>WebBrowser.openBrowserAsync(item.url)}
+              > 
+                Image Link
+              </Text>
+               <Image  style={styles.image} source = {{uri: item.url}}/>
+              {/* <GETPICTURE item={item} key={item.media_key} /> */}
+              <Text
+              key={item.width} 
+              style={{
+                marginVertical: WindowWidth * 0.05,
+                marginHorizontal: WindowWidth * 0.02,
+                color: 'gray',
+                fontSize: 18
+                }}
+              >
+                {item.type}
+              </Text>
+            </View>
+          ))} 
+
+
+
+  return (
+        <>
+          {user.includes.media.map((media)=>(
+            <View style={{justifyContent:'center'}} >
+              <Image 
+              source={{uri: media.url}}
+              style={{
+                height: WindowHeight / 2,
+                marginLeft: WindowWidth * 0.05,
+                marginRight: WindowWidth * 0.05,
+                marginVertical: WindowHeight * 0.07,
+              }}
+               
+              />
+              <Text 
+              style={{color:'dodgerblue',fontSize:12}}
+              onPress={()=>WebBrowser.openBrowserAsync(media.url)}
+              >
+                  Media Link: {media.url} 
+              </Text>
+            </View>
+            ))}
+        </>
+      );
