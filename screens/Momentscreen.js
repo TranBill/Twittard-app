@@ -20,7 +20,7 @@ function Momentscreen() {
       <View style={styles.buttons}>
         <Button
           title={status.isPlaying ? 'Pause' : 'Play'}
-          style={{color:white}}
+          style={{color:'white'}}
           onPress={() =>
             status.isPlaying ? video.current.pauseAsync() : video.current.playAsync()
           }
