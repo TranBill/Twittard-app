@@ -1,5 +1,6 @@
 import React from 'react'
-import { View, Text,StyleSheet,TextInput,TouchableOpacity } from 'react-native'
+import * as WebBrowser from 'expo-web-browser';
+import { View, Text,StyleSheet,TouchableOpacity } from 'react-native'
 import { AntDesign } from '@expo/vector-icons';
 import { twittercolor, twitterdarkcolor } from '../utils/contansts';
 
@@ -24,11 +25,11 @@ const LoginScreen=({navigation}) => {
           </View>
 
           <View>
-            <TouchableOpacity style={styles.buttonstyle}>
+            <TouchableOpacity style={styles.buttonstyle} onPress={()=>WebBrowser.openBrowserAsync("https://www.google.com/account")}>
               <AntDesign name="google" size={25} color="red" style={{marginTop:2,marginRight:10,marginBottom:2}}/>
               <Text style={styles.buttonText}> Tiếp tục với Google</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.buttonstyle}>  
+            <TouchableOpacity style={styles.buttonstyle} onPress={()=>WebBrowser.openBrowserAsync("https://appleid.apple.com/")}>  
               <AntDesign name="apple1" size={25} color="black" style={{marginTop:2,marginRight:10,marginBottom:4}}/>
               <Text style={styles.buttonText}> Tiếp tục với Apple </Text>
             </TouchableOpacity>
