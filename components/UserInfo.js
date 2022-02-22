@@ -39,7 +39,7 @@ function UserInfo() {
             </View>
 
             <View key={index} style={{flexDirection:'row',margin:8}}>
-                <EvilIcons name="location" size={28} color="gray" style={{marginLeft:10}} />
+                <EvilIcons name="location" size={30} color="gray" style={{marginLeft:10}} />
                 <Text style={{color:'gray',marginLeft:5,fontSize:12}} >
                     {item.location}
                 </Text>
@@ -53,10 +53,10 @@ function UserInfo() {
             </View>
 
             <View style={{flexDirection:'row',marginTop:20,marginLeft:10}} >
-                <Text style={{color:'white',fontSize:12}}> 
+                <Text style={{color:'white',fontSize:12,fontWeight:'bold'}}> 
                 {item.public_metrics.following_count} <Text style={{color:'gray',fontSize:12}}> Following </Text> 
                 </Text>
-                <Text style={{color:'white',fontSize:12}}> 
+                <Text style={{color:'white',fontSize:12,fontWeight:'bold'}}> 
                 {item.public_metrics.followers_count} <Text style={{color:'gray',fontSize:12}}> Followers </Text> </Text>
             </View>
         </View>

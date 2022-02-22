@@ -52,14 +52,14 @@ function CustomDrawer(props) {
             <Text style={{color:'white',fontSize:15,marginLeft:15,fontWeight:'bold'}}>
                 {user.data.name}
             </Text>
-            <View>
+            <View style={{position:'relative'}}>
                 <Text style={{color:'#808080',fontSize:12,marginLeft:15,marginBottom:20}}>
                     @{user.data.username}
                 </Text>
                 <View style={{flexDirection:'row',marginLeft:15}}>
-                    <Text style={{color:'white',fontSize:10}}> {user.data.public_metrics.following_count}</Text>
+                    <Text style={{color:'white',fontSize:10,fontWeight:'bold'}}> {user.data.public_metrics.following_count}</Text>
                     <Text style={{color:'#808080',fontSize:10}}> Following</Text>
-                    <Text style={{color:'white',fontSize:10}}> {user.data.public_metrics.followers_count}</Text>
+                    <Text style={{color:'white',fontSize:10,fontWeight:'bold'}}> {user.data.public_metrics.followers_count}</Text>
                     <Text style={{color:'#808080',fontSize:10}}> Followers</Text>
                 </View>
             </View>

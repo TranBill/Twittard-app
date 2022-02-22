@@ -1,5 +1,5 @@
 import React from 'react';
-import {View,Text,ScrollView,Image,Animated,Alert} from 'react-native';
+import {View,Text,ScrollView,Image,Animated,Alert,RefreshControl} from 'react-native';
 import { useNavigation } from '@react-navigation/native'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -58,6 +58,15 @@ function Profilescreen() {
       outputRange: [-46, -46, -46, 0],
       extrapolate: "clamp"
     });
+  const wait = (timeout) => {
+    return new Promise(resolve => setTimeout(resolve, timeout));
+  }
+  const [refreshing, setRefreshing] = React.useState(false);
+
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    wait(1200).then(() => setRefreshing(false));
+  }, []);
 
   //API
   const [user, setUser] = React.useState();
@@ -126,6 +135,12 @@ function Profilescreen() {
           ],
           {useNativeDriver:false}
           )}
+          refreshControl={
+            <RefreshControl
+              refreshing={refreshing}
+              onRefresh={onRefresh}
+            />
+          }
           >
             {/* PROFILE AVATAR SCROLL ANIMATION */}
           <TouchableOpacity onPress={()=>navigation.navigate('Nhà')}>

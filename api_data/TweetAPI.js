@@ -34,8 +34,8 @@ function TweetAPI() {
                         <Image 
                         source={{uri : info.profile_image_url}} 
                         style={{ 
-                            height: 50, 
-                            width: 50,
+                            height: 55, 
+                            width: 55,
                             marginBottom:10,
                             borderRadius:40, 
                             marginLeft: 10,
@@ -43,15 +43,23 @@ function TweetAPI() {
                         }} 
                         />
                         <View>
-                        <Text  style={{color:'white',fontWeight:'bold',fontSize:12}}>
+                        <Text  style={{color:'white',fontWeight:'bold',fontSize:12,marginLeft:5}}>
                             {info.name}
                         </Text>
-                        <Text style={{color:'gray',fontWeight:'bold',fontSize:12,marginLeft:5}}>
+                        <Text style={{color:'gray',fontWeight:'bold',fontSize:12,marginTop:5,marginLeft:5}}>
                           @{info.username}
                         </Text>
                         </View>
-                        <Text style={{color:'gray'}}>
-                        {moment(item.created_at).fromNow()}
+                        <Text style={{color:'gray',fontSize:12,left:60}}>
+                        {moment(item.created_at).fromNow()
+                        .replace("days ago",'d')
+                        .replace("a day ago",'1d')
+                        .replace("hours ago",'h')
+                        .replace("a hour ago",'1h')
+                        .replace("minutes ago", 'm')
+                        .replace("a minute ago",'1m')
+                        .replace("seconds ago",'s')
+                        .replace("a second ago","1s")}
                         </Text>
                         
                     </View>
