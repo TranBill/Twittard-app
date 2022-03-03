@@ -1,4 +1,6 @@
 Hello, this is a retarded Twitter clone
 
 Run on Mobile with expo
-Connected to Twitter api v2 to get users data
+Connected to Twitter api v2 on Postman to get users data
+
+Twitter API keys are in key.txt file
